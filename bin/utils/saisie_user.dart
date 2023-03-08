@@ -1,7 +1,7 @@
 import 'dart:io';
 
-String saisieUser() {
-  stdout.write('Faire un choix: ');
+String saisieUser([String msg="Faire un choix"]) {
+  stdout.write('$msg: ');
   String? choix = stdin.readLineSync();
   String choix_final= choix ?? "";
   return choix_final.trim();

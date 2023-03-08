@@ -1,4 +1,8 @@
-void liste_fideles_vue(List<String> fideles) {
+import '../controlleurs/fidele_controller.dart';
+import '../models/fidele_model.dart';
+
+void liste_fideles_vue(FideleController fideleCtrl) {
+  List<FideleModel> fideles=fideleCtrl.listFideles;
   print("Liste des Fidèles (${fideles.length})");
   print("-" * 20);
   int i = 1;
@@ -7,7 +11,7 @@ void liste_fideles_vue(List<String> fideles) {
     print("Aucun fidele enregistré");
   } else {
     for (var fidele in fideles) {
-      print("$i. $fidele");
+      print("$i. ${fidele.nom}");
       i++;
     }
   }
@@ -17,5 +21,5 @@ void liste_fideles_vue(List<String> fideles) {
 
 void main() {
   List<String> fideles = ["Digital academy", "FabLab", "Orange Fab"];
-  liste_fideles_vue(fideles);
+  //liste_fideles_vue(fideles);
 }
