@@ -3,12 +3,12 @@ import '../utils/navigation.dart';
 import 'menu_evenement_vue.dart';
 import 'menu_fidele_vue.dart';
 
-void menu_principale_vue(FideleController fideleCtrl) {
+void menu_principale_vue() {
   print("Menu Principal");
   print("=" * 20);
   List<String> menus = ["Fidèle", "Evenement"];
   Map menus2 = {
-    "1": {"titre": "Fidele", "action": () => menu_fidele_vue(fideleCtrl)},
+    "1": {"titre": "Fidele", "action": () => menu_fidele_vue()},
     "2": {"titre": "Evenement", "action": () => menu_evenement_vue()},
     "0": {"titre": "Quitter", "action": () => print("quitter choisi")},
   };

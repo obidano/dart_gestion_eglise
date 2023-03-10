@@ -4,8 +4,10 @@ import '../main.dart';
 import '../models/fidele_model.dart';
 import '../utils/navigation.dart';
 import '../utils/saisie_user.dart';
+import '../utils/service.dart';
 
-void creer_fidele_vue(FideleController fideleCtrl) {
+void creer_fidele_vue() {
+  FideleController fideleCtrl= getIt<FideleController>();
   print("Créer  Fidèle");
   print("-" * 20);
 
@@ -45,5 +47,6 @@ void creer_fidele_vue(FideleController fideleCtrl) {
 }
 
 void main() {
-  //creer_fidele_vue();
+  getIt.registerSingleton(FideleController());
+  creer_fidele_vue();
 }

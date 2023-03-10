@@ -2,9 +2,12 @@ import '../controlleurs/fidele_controller.dart';
 import '../main.dart';
 import '../models/fidele_model.dart';
 import '../utils/navigation.dart';
+import '../utils/service.dart';
 import 'menu_detail_fidele_vue.dart';
 
-void liste_fideles_vue(FideleController fideleCtrl) {
+void liste_fideles_vue() {
+  FideleController fideleCtrl= getIt<FideleController>();
+
   List<FideleModel> fideles = fideleCtrl.listFideles;
   print("Liste des Fidèles (${fideles.length})");
   print("-" * 20);
@@ -28,13 +31,14 @@ void liste_fideles_vue(FideleController fideleCtrl) {
 }
 
 void main() {
-  List<String> fideles = ["Digital academy", "FabLab", "Orange Fab"];
-  FideleController fideleCtrl = FideleController();
+  getIt.registerSingleton(FideleController());
+
+  FideleController fideleCtrl = getIt<FideleController>();
   fideleCtrl
       .creer_fidele(FideleModel(nom: "ODC",
       age: 1, profession: "Centre"));
   fideleCtrl
       .creer_fidele(FideleModel(nom: "ODC 1",
       age: 2, profession: "Centre"));
-  liste_fideles_vue(fideleCtrl);
+  liste_fideles_vue();
 }

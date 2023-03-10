@@ -11,12 +11,9 @@ void navigation(Map menus2){
 
     String choix = saisieUser();
     if (menus2.containsKey(choix)) {
-      //print("choix $choix ${choix=='0'}");
       if (choix == "0") break;
       Function action=menus2[choix]['action'];
       var resultat=action();
-      //print("Resultat ==> $resultat");
-      //print(resultat.runtimeType);
       if(resultat is bool && resultat){
         break;
       }
